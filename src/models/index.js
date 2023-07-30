@@ -47,21 +47,18 @@ coursesModel.belongsTo(departmentsModel,{
     foreignKey:'departmentId',
     as:'departments'
 })
-// departmentsModel.hasMany(coursesModel)
 
 // institutions courses relation 
 coursesModel.belongsTo(usersModel,{
     foreignKey:'institutionId',
     as:'institution'
 })
-// usersModel.hasMany(coursesModel)
 
 // departments departmentHead relation
 departmentsModel.belongsTo(usersModel,{
     foreignKey:'departmentHeadId',
     as:'departmentHead'
 })
-// usersModel.hasMany(departmentsModel)
 
 //departments instituations relations
 departmentsModel.belongsTo(usersModel,{
