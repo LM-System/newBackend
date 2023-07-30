@@ -1,5 +1,5 @@
-const users_courses = (Sequelize,DataTypes)=> 
-Sequelize.define('users_courses',{
+const studentsCourses = (Sequelize,DataTypes)=> 
+Sequelize.define('studentsCourses',{
     courseId:{
         type:DataTypes.INTEGER,
         allowNull:false,   
@@ -10,4 +10,4 @@ Sequelize.define('users_courses',{
     }
 
 })
-module.exports = users_courses
+module.exports = studentsCourses

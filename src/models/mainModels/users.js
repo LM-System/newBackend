@@ -2,9 +2,8 @@
 const users = (Sequelize,DataTypes)=>
 Sequelize.define('users',{
         username:{
-        type: DataTypes.STRING,
-        allowNull:false,
-        
+            type: DataTypes.STRING,
+            allowNull:false, 
         },
         password:{
             type: DataTypes.STRING,
@@ -16,32 +15,26 @@ Sequelize.define('users',{
             unique: true
         },
         gender:{
-        type: DataTypes.ENUM('male','female'),
-        allowNull:false
+            type: DataTypes.ENUM('male','female'),
+            allowNull:true
         },
         birth_date:{
-        type: DataTypes.DATE,
-        allowNull:false
+            type: DataTypes.DATE,
+            allowNull:true
         },
         role:{
-        type: DataTypes.ENUM('admin','teacher','student'),
-        defaultValue:'student'
-    },
-        capabilities:{
-        type:DataTypes.VIRTUAL,
-        get(){
-            const acl = {
-                admin:['read','update','create','delete','updateAsSchool','createAsSchool','deleteAsSchool','updateAsTeacher','createAsTeacher','deleteAsTeacher'],
-                // school:['read','updateAsSchool','createAsSchool','deleteAsSchool'],
-                teacher:['read','updateAsTeacher','createAsTeacher','deleteAsTeacher'],
-                student:['read']
-            }
-            return acl[this.role]
+             type: DataTypes.ENUM('admin','institution','instructor','student','departmentHead'),
+            defaultValue:'student'
+        },
+        institutionId:{
+            type: DataTypes.INTEGER,
+        },
+        departmentId:{
+            type: DataTypes.INTEGER,
+        },
+         token:{
+            type:DataTypes.VIRTUAL
         }
-    },
-    token:{
-        type:DataTypes.VIRTUAL
-    }
 
 })
 

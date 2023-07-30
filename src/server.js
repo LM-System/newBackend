@@ -3,13 +3,17 @@ const express = require('express');
 const app = express();
 const courseRouter =require('./routes/coursesRouter') ;
 const userRouter = require ('./routes/userRouter')
-const users_coursesRouter = require('./routes/users_coursesRouter')
+const studentsCoursesRouter = require('./routes/studentsCoursesRouter')
+const instructorsCoursesRouter = require('./routes/instructorsCoursesRouter')
+const departmentsRouter = require('./routes/departmentsRouter')
 
 
 app.use(express.json())
 app.use(courseRouter)
 app.use(userRouter)
-app.use(users_coursesRouter)
+app.use(studentsCoursesRouter)
+app.use(instructorsCoursesRouter)
+app.use(departmentsRouter)
 app.get('/',(req,res)=>{
     res.json("welcome to the home page")
 })
